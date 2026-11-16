@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Currículum de Mercedes Triano Blanco, estudiante de Trabajo Social.">
+  <title>Mercedes Triano Blanco | Currículum</title>
+  <style>
+    :root {
+      /* Blanco puro para el fondo principal y las superficies de contenido. */
+      --color-fondo: #FFFFFF;
+      /* Gris claro neutro para las franjas del encabezado y el pie. */
+      --color-franja: #D8D8D8;
+      /* Terracota vibrante para títulos, detalles y botones. */
+      --color-acento: #E24E2A;
+      /* Gris casi negro para el nombre y el texto de mayor jerarquía. */
+      --color-texto: #222222;
+      /* Gris carbón para párrafos y texto secundario. */
+      --color-secundario: #4A4A4A;
+      /* Blanco para el elemento activo de la navegación. */
+      --color-enlace-activo: #FFFFFF;
+      /* Negro para iconos monocromáticos, si se incorporan en el futuro. */
+      --color-icono: #000000;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--color-fondo);
+      color: var(--color-secundario);
+      font-family: Avenir, "Montserrat", "Questrial", "Segoe UI", Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.75;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .wrap {
+      width: min(980px, calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      background: var(--color-franja);
+    }
+
+    .header-inner {
+      min-height: 122px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding-block: 22px;
+    }
+
+    .identity h1 {
+      margin: 0;
+      color: var(--color-texto);
+      font-size: clamp(1.7rem, 3.2vw, 2.25rem);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+
+    .identity p {
+      margin: 7px 0 0;
+      color: var(--color-secundario);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px 20px;
+    }
+
+    .site-nav a {
+      color: var(--color-texto);
+      font-size: 0.83rem;
+      text-decoration: none;
+      transition: color 160ms ease;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus-visible {
+      color: var(--color-acento);
+    }
+
+    .site-nav a[aria-current="page"] {
+      color: var(--color-enlace-activo);
+    }
+
+    .resume-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      align-items: start;
+      gap: clamp(34px, 6vw, 66px);
+      padding-block: 58px 72px;
+    }
+
+    .photo-column {
+      margin: 0;
+    }
+
+    .photo-column img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .resume-content section {
+      margin: 0 0 37px;
+      scroll-margin-top: 24px;
+    }
+
+    .resume-content h2 {
+      margin: 0;
+      color: var(--color-acento);
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .section-rule {
+      width: 38px;
+      height: 1px;
+      margin: 11px 0 15px;
+      border: 0;
+      background: var(--color-acento);
+    }
+
+    .resume-content p {
+      margin: 0;
+    }
+
+    .contact-list,
+    .education-list,
+    .plain-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 6px;
+    }
+
+    .contact-list a {
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .education-list {
+      display: grid;
+      gap: 17px;
+    }
+
+    .education-list li {
+      padding-left: 15px;
+      border-left: 1px solid var(--color-franja);
+    }
+
+    .education-list strong {
+      display: block;
+      color: var(--color-texto);
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .education-list span {
+      display: block;
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+
+    .plain-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .plain-list li {
+      padding: 3px 10px;
+      border: 1px solid var(--color-franja);
+      color: var(--color-secundario);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .language-list {
+      display: grid;
+      gap: 5px;
+    }
+
+    .language-list strong {
+      color: var(--color-texto);
+      font-weight: 600;
+    }
+
+    .contact-button {
+      display: inline-block;
+      margin-top: 3px;
+      padding: 7px 17px;
+      border: 1px solid var(--color-acento);
+      border-radius: 0;
+      color: var(--color-acento);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      text-decoration: none;
+      transition: background-color 160ms ease, color 160ms ease;
+    }
+
+    .contact-button:hover,
+    .contact-button:focus-visible {
+      background: var(--color-acento);
+      color: var(--color-fondo);
+    }
+
+    .site-footer {
+      background: var(--color-franja);
+      color: var(--color-secundario);
+      font-size: 0.83rem;
+    }
+
+    .footer-inner {
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-block: 12px;
+    }
+
+    .footer-inner p {
+      margin: 0;
+    }
+
+    .footer-inner a {
+      color: var(--color-texto);
+      text-decoration: none;
+    }
+
+    .footer-inner a:hover,
+    .footer-inner a:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(100% - 36px, 540px);
+      }
+
+      .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+        padding-block: 24px;
+      }
+
+      .site-nav {
+        justify-content: flex-start;
+        gap: 8px 17px;
+      }
+
+      .resume-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding-block: 30px 45px;
+      }
+
+      .photo-column {
+        width: min(100%, 360px);
+        margin-inline: auto;
+      }
+
+      .resume-content section {
+        margin-bottom: 32px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .wrap {
+        width: calc(100% - 30px);
+      }
+
+      .identity h1 {
+        font-size: 1.6rem;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="inicio">
+    <div class="wrap header-inner">
+      <div class="identity">
+        <h1>Mercedes Triano Blanco</h1>
+        <p>Estudiante de Trabajo Social · Universidad de Cádiz</p>
+      </div>
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="#inicio" aria-current="page">Inicio</a>
+        <a href="#formacion">Formación</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#idiomas">Idiomas</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap resume-layout">
+    <figure class="photo-column">
+      <img src="imagenes/foto.jpg" alt="Fotografía de Mercedes Triano Blanco">
+    </figure>
+
+    <div class="resume-content">
+      <!-- ===== SECCIÓN: SOBRE MÍ ===== -->
+      <section id="sobre-mi" aria-labelledby="sobre-mi-titulo">
+        <h2 id="sobre-mi-titulo">Sobre mí</h2>
+        <hr class="section-rule">
+        <p>Estudiante responsable, organizada y empática, con capacidad de adaptación y trabajo en equipo. Soy una persona comprometida con todo lo que hace.</p>
+      </section>
+      <!-- ===== FIN: SOBRE MÍ ===== -->
+
+      <!-- ===== SECCIÓN: CONTACTO ===== -->
+      <section id="contacto" aria-labelledby="contacto-titulo">
+        <h2 id="contacto-titulo">Contacto</h2>
+        <hr class="section-rule">
+        <ul class="contact-list">
+          <li><a href="tel:+34601387286">601 387 286</a></li>
+          <li><a href="mailto:mercedestrianoblanco@gmail.com">mercedestrianoblanco@gmail.com</a></li>
+        </ul>
+      </section>
+      <!-- ===== FIN: CONTACTO ===== -->
+
+      <!-- ===== SECCIÓN: FORMACIÓN ===== -->
+      <section id="formacion" aria-labelledby="formacion-titulo">
+        <h2 id="formacion-titulo">Formación</h2>
+        <hr class="section-rule">
+        <ul class="education-list">
+          <li>
+            <strong>Grado en Trabajo Social</strong>
+            <span>Universidad de Cádiz (UCA) · Actualmente cursando cuarto</span>
+          </li>
+          <li>
+            <strong>Erasmus</strong>
+            <span>Università degli Studi di Siena, Italia · Curso académico 2025-2026</span>
+          </li>
+          <li>
+            <strong>Bachillerato</strong>
+            <span>IES Álvar Núñez, Jerez de la Frontera</span>
+          </li>
+          <li>
+            <strong>Educación Secundaria Obligatoria (ESO)</strong>
+            <span>Colegio María Auxiliadora, Jerez de la Frontera</span>
+          </li>
+          <li>
+            <strong>Plan de Voluntariado UCA</strong>
+            <span>Cruz Roja · Diciembre 2023 - mayo 2024</span>
+          </li>
+          <li>
+            <strong>Jornada «Buen vivir: futuro compartido para un cambio transformador»</strong>
+            <span>Universidad de Cádiz · 19 de marzo de 2024</span>
+          </li>
+          <li>
+            <strong>Nuevas estrategias de atención e intervención con personas mayores</strong>
+            <span>Cruz Roja · 2023</span>
+          </li>
+          <li>
+            <strong>Mejorar el bienestar del voluntariado cuidador</strong>
+            <span>Cruz Roja · 2023</span>
+          </li>
+        </ul>
+      </section>
+      <!-- ===== FIN: FORMACIÓN ===== -->
+
+      <!-- ===== SECCIÓN: EXPERIENCIA ===== -->
+      <section id="experiencia" aria-labelledby="experiencia-titulo">
+        <h2 id="experiencia-titulo">Experiencia</h2>
+        <hr class="section-rule">
+        <p>No se indica experiencia profesional en la información proporcionada.</p>
+      </section>
+      <!-- ===== FIN: EXPERIENCIA ===== -->
+
+      <!-- ===== SECCIÓN: HABILIDADES ===== -->
+      <section id="habilidades" aria-labelledby="habilidades-titulo">
+        <h2 id="habilidades-titulo">Habilidades</h2>
+        <hr class="section-rule">
+        <ul class="plain-list">
+          <li>Responsabilidad</li>
+          <li>Organización</li>
+          <li>Empatía</li>
+          <li>Adaptabilidad</li>
+          <li>Trabajo en equipo</li>
+          <li>Compromiso</li>
+        </ul>
+      </section>
+      <!-- ===== FIN: HABILIDADES ===== -->
+
+      <!-- ===== SECCIÓN: IDIOMAS ===== -->
+      <section id="idiomas" aria-labelledby="idiomas-titulo">
+        <h2 id="idiomas-titulo">Idiomas</h2>
+        <hr class="section-rule">
+        <ul class="language-list plain-list">
+          <li><strong>Inglés:</strong> B1, acreditado por Aptis</li>
+          <li><strong>Francés:</strong> Nivel de usuario</li>
+          <li><strong>Italiano:</strong> Nivel de usuario</li>
+        </ul>
+      </section>
+      <!-- ===== FIN: IDIOMAS ===== -->
+
+      <!-- ===== SECCIÓN: OTROS ===== -->
+      <section id="otros" aria-labelledby="otros-titulo">
+        <h2 id="otros-titulo">Otros</h2>
+        <hr class="section-rule">
+        <ul class="language-list">
+          <li>Permiso de conducir tipo B y AM, con vehículo propio</li>
+          <li>Disponibilidad completa</li>
+          <li>Incorporación inmediata</li>
+        </ul>
+        <a class="contact-button" href="mailto:mercedestrianoblanco@gmail.com">Contactar por correo</a>
+      </section>
+      <!-- ===== FIN: OTROS ===== -->
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>© 2026 Mercedes Triano Blanco</p>
+      <a href="mailto:mercedestrianoblanco@gmail.com">mercedestrianoblanco@gmail.com</a>
+    </div>
+  </footer>
+</body>
+</html>
